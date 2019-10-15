@@ -24,6 +24,7 @@ urlpatterns = [
     path('accounts/',include('accounts.urls',namespace='accounts')),
     # This allows us to connect everything Django has under the hood for authorization
     path('accounts/',include('django.contrib.auth.urls')),
+    path('accounts/', include('allauth.urls')),
     path('test/',views.TestPage.as_view(),name='test'),
     path('homepage/',views.HomepagePage.as_view(),name='homepage'),
     path('thanks/',views.ThanksPage.as_view(),name='thanks'),

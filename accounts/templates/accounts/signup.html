@@ -1,15 +1,25 @@
 {% extends 'base.html' %}
 {% load bootstrap4 %}
+{% load staticfiles %}
+{% load socialaccount %}
 
 {% block content %}
 <div class="container">
   <h1>Sign Up</h1>
-  <form method="POST" class="form">
+  <br>
+  <div class="col-4">
+    <a href="{% provider_login_url "facebook" method="oauth2" %}" class="btn btn-primary btn-md btn-social btn-facebook ali-content-center">
+    <i class="fa fa-facebook fa-fw"></i>Log in with Facebook</a>
+  </div>
+  <br>
+  <div class="form">
+    <form method="POST" >
     {% csrf_token %}
     {% bootstrap_form form %}
     {% buttons %}
     <input type="submit" class="btn btn-primary" value="Sign Up">
     {% endbuttons %}
-  </form>
+    </form>
+  </div>
 </div>
 {% endblock %}
